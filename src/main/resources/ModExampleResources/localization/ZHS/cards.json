@@ -1,0 +1,30 @@
+{
+  "ExampleMod:Power": {
+    "NAME": "魔法球",
+    "DESCRIPTION": "恢复 [E] [E]",
+    "UPGRADE_DESCRIPTION": "恢复 [E] [E] NL [E] [E]"
+  },
+
+  "ExampleMod:StoneSprite": {
+    "NAME": "石灵",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL mixmod:融合",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL mixmod:融合"
+  },
+
+  "ExampleMod:MixSprite": {
+    "NAME": "灵",
+    "DESCRIPTION": "造成 !D! 点伤害",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害"
+  },
+
+
+
+
+
+
+  "ExampleMod:Strike": {
+    "NAME": "超人打击",
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 examplemod:恐惧 。"
+  }
+}
