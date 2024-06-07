@@ -10,6 +10,12 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL mixmod:融合",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL mixmod:融合"
   },
+  "ExampleMod:GrassSprite": {
+    "NAME": "草灵",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL mixmod:成长 增加 !G! 伤害。 NL mixmod:融合",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL mixmod:成长 增加 !G! 伤害。 NL mixmod:融合"
+  },
+
 
   "ExampleMod:MixSprite": {
     "NAME": "灵",

@@ -1,5 +1,6 @@
 package MixMod.character;
 
+import MixMod.cards.LC.GrassSprite;
 import MixMod.cards.LC.Power;
 import MixMod.cards.LC.StoneSprite;
 import MixMod.cards.Strike;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 public class LController extends CustomPlayer {
 
     // 火堆的人物立绘（行动前）
-    private static final String MY_CHARACTER_SHOULDER_1 = ImgHelper.getCharPath("shoulder1.png");
+    private static final String MY_CHARACTER_SHOULDER_1 = ImgHelper.getCharPath("shoulder.png");
     // 火堆的人物立绘（行动后）
     private static final String MY_CHARACTER_SHOULDER_2 =  ImgHelper.getCharPath("shoulder2.png");
     // 人物死亡图像
@@ -91,6 +92,7 @@ public class LController extends CustomPlayer {
         for(int i = 0; i < 3; i ++ ) {
             retVal.add(Power.ID);
             retVal.add(StoneSprite.ID);
+            retVal.add(GrassSprite.ID);
         }
 
         return retVal;

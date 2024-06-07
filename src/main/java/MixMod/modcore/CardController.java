@@ -1,17 +1,14 @@
 package MixMod.modcore;
 
 import MixMod.cards.LC.Power;
-import MixMod.cards.Strike;
 import MixMod.character.MyColor;
+import MixMod.variables.GrowVariable;
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.helpers.dynamicvariables.DamageVariable;
 import basemod.interfaces.EditCardsSubscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-
-import java.lang.reflect.Array;
-import java.util.*;
-import java.util.stream.Collectors;
 
 import static MixMod.character.MyCharacter.Enums.EXAMPLE_CARD;
 
@@ -21,7 +18,8 @@ public class CardController implements EditCardsSubscriber {
 
     public CardController() {
         BaseMod.subscribe(this);
-
+        BaseMod.addDynamicVariable(new GrowVariable());
+        BaseMod.addDynamicVariable(new DamageVariable());
         BaseMod.addColor(EXAMPLE_CARD, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,
                 MyColor.BG_ATTACK_512,MyColor.BG_SKILL_512,MyColor.BG_POWER_512,
                 MyColor.ENEYGY_ORB,MyColor.BG_ATTACK_1024,MyColor.BG_SKILL_1024,
@@ -35,8 +33,6 @@ public class CardController implements EditCardsSubscriber {
 
     @Override
     public void receiveEditCards() {
-//        BaseMod.addCard(new Strike());
-//        BaseMod.addCard(new Power());
         new AutoAdd("MixMod")
                 .packageFilter(Power.class)
                 .setDefaultSeen(true)

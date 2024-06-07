@@ -1,12 +1,12 @@
 package MixMod.power;
 
+import MixMod.actions.MakeTempCardInHandAction;
 import MixMod.cards.LC.AbstractSprite;
 import MixMod.cards.LC.MixSprite;
 import MixMod.utils.ImgHelper;
 import MixMod.utils.MyUtil;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -70,6 +70,7 @@ public class MixPower extends AbstractPower {
             amount = 0;
             addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, MixPower.POWER_ID));
             addToBot(new MakeTempCardInHandAction(mixSprite, 1));
+            
         }
     }
 
