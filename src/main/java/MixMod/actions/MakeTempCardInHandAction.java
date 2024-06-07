@@ -98,12 +98,7 @@ public class MakeTempCardInHandAction extends AbstractGameAction {
             case 1:
                 if (handAmt == 1) {
                     if (this.isOtherCardInCenter) {
-                        AbstractCard abstractCard = this.makeNewCard();
-                        log.info("摸牌，" + abstractCard.rawDescription);
-                        for (DescriptionLine descriptionLine : abstractCard.description) {
-                            log.info(descriptionLine.getText());
-                        }
-                        AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(abstractCard, (float)Settings.WIDTH / 2.0F - (PADDING + AbstractCard.IMG_WIDTH), (float)Settings.HEIGHT / 2.0F));
+                        AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(this.makeNewCard(), (float)Settings.WIDTH / 2.0F - (PADDING + AbstractCard.IMG_WIDTH), (float)Settings.HEIGHT / 2.0F));
                     } else {
                         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(this.makeNewCard()));
                     }
@@ -175,13 +170,7 @@ public class MakeTempCardInHandAction extends AbstractGameAction {
     }
 
     private AbstractCard makeNewCard() {
-//        return this.sameUUID ? this.c.makeSameInstanceOf() : this.c.makeStatEquivalentCopy();
-        AbstractCard abstractCard = this.c.makeSameInstanceOf();
-        log.info("makeNew，" + abstractCard.rawDescription);
-        for (DescriptionLine descriptionLine : abstractCard.description) {
-            log.info(descriptionLine.getText());
-        }
-        return abstractCard;
+        return this.sameUUID ? this.c.makeSameInstanceOf() : this.c.makeStatEquivalentCopy();
     }
 
     static {

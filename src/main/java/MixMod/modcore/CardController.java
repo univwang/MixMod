@@ -1,6 +1,7 @@
 package MixMod.modcore;
 
 import MixMod.cards.LC.Power;
+import MixMod.character.LController;
 import MixMod.character.MyColor;
 import MixMod.variables.GrowVariable;
 import basemod.AutoAdd;
@@ -10,8 +11,6 @@ import basemod.interfaces.EditCardsSubscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
-import static MixMod.character.MyCharacter.Enums.EXAMPLE_CARD;
-
 @SpireInitializer
 public class CardController implements EditCardsSubscriber {
     public static final Color MY_COLOR = new Color(248.0F / 255.0F, 250.0F / 255.0F, 57.0F / 255.0F, 1.0F);
@@ -20,7 +19,7 @@ public class CardController implements EditCardsSubscriber {
         BaseMod.subscribe(this);
         BaseMod.addDynamicVariable(new GrowVariable());
         BaseMod.addDynamicVariable(new DamageVariable());
-        BaseMod.addColor(EXAMPLE_CARD, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,
+        BaseMod.addColor(LController.Enums.CARD_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,
                 MyColor.BG_ATTACK_512,MyColor.BG_SKILL_512,MyColor.BG_POWER_512,
                 MyColor.ENEYGY_ORB,MyColor.BG_ATTACK_1024,MyColor.BG_SKILL_1024,
                 MyColor.BG_POWER_1024,MyColor.BIG_ORB,MyColor.SMALL_ORB);

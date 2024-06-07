@@ -2,25 +2,21 @@ package MixMod.cards.LC;
 
 import MixMod.utils.ImgHelper;
 import MixMod.utils.MyUtil;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DescriptionLine;
-import com.megacrit.cardcrawl.cards.tempCards.Miracle;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.cardManip.CardFlashVfx;
 import lombok.extern.slf4j.Slf4j;
-
-import static MixMod.character.MyCharacter.Enums.EXAMPLE_CARD;
 
 @Slf4j
 public class MixSprite extends AbstractSprite {
 
-    private static final CardColor COLOR = EXAMPLE_CARD;
+//    private static final CardColor COLOR = EXAMPLE_CARD;
     public static final String ID = MyUtil.makeCardId(MixSprite.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
@@ -47,29 +43,30 @@ public class MixSprite extends AbstractSprite {
     }
 
     @Override
-    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        this.initializeDescription();
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     @Override
     public AbstractCard makeStatEquivalentCopy() {
-        AbstractCard abstractCard = super.makeStatEquivalentCopy();
-        abstractCard.rawDescription = rawDescription;
-        log.info("复制 " + rawDescription);
-        abstractCard.initializeDescription(); //是新卡牌初始化，不是旧卡牌初始化。
-        for (DescriptionLine descriptionLine : this.description) {
-            log.info(descriptionLine.getText());
-        }
-        return abstractCard;
+        //不复制了，直接返回构建的mixSprite
+        return this;
+//        AbstractCard abstractCard = super.makeStatEquivalentCopy();
+//        abstractCard.rawDescription = rawDescription;
+//        abstractCard.initializeDescription(); //是新卡牌初始化，不是旧卡牌初始化。
+//        return abstractCard;
     }
 
     @Override
     public void triggerWhenCopied() {
         super.triggerWhenCopied();
-//        log.info("ShowCardAndAddToHandEffect " + rawDescription);
-//        for (DescriptionLine descriptionLine : this.description) {
-//            log.info(descriptionLine.getText());
-//        }
-//        this.initializeDescription();
     }
+
+    @Override
+    public void applyGrow() {
+        this.upgradeDamage(this.grow);
+    }
+
+
+
 }

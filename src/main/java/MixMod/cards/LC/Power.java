@@ -14,11 +14,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.MiracleEffect;
 
-import static MixMod.character.MyCharacter.Enums.EXAMPLE_CARD;
+import static MixMod.cards.LC.AbstractSprite.COLOR;
 
 public class Power extends CustomCard {
 
-    private static final CardColor COLOR = EXAMPLE_CARD;
+//    private static final CardColor COLOR = EXAMPLE_CARD;
     public static final String ID = MyUtil.makeCardId(Power.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;

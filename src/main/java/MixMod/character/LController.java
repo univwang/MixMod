@@ -3,7 +3,6 @@ package MixMod.character;
 import MixMod.cards.LC.GrassSprite;
 import MixMod.cards.LC.Power;
 import MixMod.cards.LC.StoneSprite;
-import MixMod.cards.Strike;
 import MixMod.modcore.CardController;
 import MixMod.relics.MyRelic;
 import MixMod.utils.ImgHelper;
@@ -221,8 +220,7 @@ public class LController extends CustomPlayer {
 
     @Override
     public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
-        CardLibrary.addPurpleCards(tmpPool);
-        return tmpPool;
+        return super.getCardPool(tmpPool);
     }
 
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用
@@ -233,10 +231,10 @@ public class LController extends CustomPlayer {
         @SpireEnum
         public static PlayerClass CHARACTER;
 
-        @SpireEnum(name = "LC")
+        @SpireEnum(name = "LC_COLOR")
         public static AbstractCard.CardColor CARD_COLOR;
 
-        @SpireEnum(name = "LC")
+        @SpireEnum(name = "LC_COLOR")
         public static CardLibrary.LibraryType LIBRARY;
     }
 }

@@ -3,27 +3,19 @@ package MixMod.cards.LC;
 import MixMod.power.MixPower;
 import MixMod.utils.ImgHelper;
 import MixMod.utils.MyUtil;
-import basemod.abstracts.CustomCard;
-import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
-import com.megacrit.cardcrawl.vfx.combat.MiracleEffect;
-
-import static MixMod.character.MyCharacter.Enums.EXAMPLE_CARD;
 
 public class StoneSprite extends AbstractSprite {
 
-    private static final CardColor COLOR = EXAMPLE_CARD;
+//    private static final CardColor COLOR = EXAMPLE_CARD;
     public static final String ID = MyUtil.makeCardId(StoneSprite.class.getSimpleName());
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
@@ -70,7 +62,7 @@ public class StoneSprite extends AbstractSprite {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         MixPower.Sprites.add(this);
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.LIGHTNING));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new MixPower(p, 1)));
     }
 }
